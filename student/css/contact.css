@@ -152,8 +152,11 @@ header {
     color: #fff;
     font-size: 23px;
     min-height: 40vh;
-    position: relative;
-    top: 0; /* removed large downward offset for better responsiveness */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; /* anchor to bottom of viewport */
+    margin: 0 auto;
 
 }
 
@@ -280,6 +283,7 @@ header {
 /* Responsive */
 @media (max-width: 768px) {
     .contact-content {
+        position: static; /* let it flow normally on mobile */
         flex-direction: column;
         text-align: center;
         padding: 24px;
