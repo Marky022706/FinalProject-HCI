@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRCB Campus Event Management - Login</title>
+    <link rel="stylesheet" href="student/css/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="logo-container">
+                <img src="student/logo/home-logo.png" alt="College Logo" class="college-logo">
+                <img src="student/logo/unnamed.png" alt="EventEase Logo" class="eventease-logo">
+            </div>
+
+            <div class="title">
+                SRCB <br>
+                <span>Campus Event Management</span>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h2 class="login-title">Login</h2>
+    <form>
+        <div class="form-group">
+            <input type="email" id="email" class="form-input" placeholder="Enter Email" required>
+        </div>
+
+        <div class="password-container">
+            <input type="password" id="password" class="form-input" placeholder="Enter Password" required>
+            <button type="button" class="toggle-btn" id="togglePassword"></button>
+        </div>
+
+        <button type="submit" id="loginBtn" class="sign-in-btn">Sign In</button>
+
+        <!-- 🔹 Inserted message area -->
+        <div id="message" class="message"></div>
+    </form>
+
+        </div>
+    </div>
+
+    <script src="student/script/login.js"></script>
+</body>
+</html>

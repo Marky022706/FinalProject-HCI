@@ -1,0 +1,152 @@
+/* ===========================
+   Panel Style
+   =========================== */
+.notification-panel {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transform: translateX(500px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.notification-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Bell icon style */
+.notification-icon {
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Red circular badge for unread notification count */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #ef4444; /* Red color */
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.notification-panel.show {
+    transform: translateX(0);
+}
+
+/* ===========================
+    Header + Buttons
+   =========================== */
+.notification-header {
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.notification-header h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #3b5998;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2d4373;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* ===========================
+    Notification Items
+   =========================== */
+.notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 18px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.2s;
+}
+
+.notification-item:hover {
+    background: #f9fafb;
+}
+
+.notification-item.unread {
+    background: #f0f4ff;
+}
+
+.notification-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111827;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ===========================
+   Close Button
+   =========================== */
+.close-panel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #6b7280;
+}

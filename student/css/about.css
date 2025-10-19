@@ -1,0 +1,355 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #D9D9D9;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #3861C0;
+    padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 18px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-name {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.home-logo {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid white;
+    animation: slideIn 0.3s ease-in-out forwards;
+}
+
+/* Icons */
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icons i {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+.nav-icons i:hover {
+    opacity: 0.7;
+}
+
+/* Hamburger (mobile menu) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+
+
+/* About Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+/* White box */
+.white-box {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    padding: 60px 30px 300px; /* extra bottom space to fit blue box */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Blue box (slightly outside white box bottom + wider sides) */
+.blue-box {
+    background: #3861C0;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    padding: 35px 25px;
+    width: 108%; /* extend beyond white box */
+    position: absolute;
+    bottom: -10px; /* move slightly downward */
+    left: -4%; /* make both sides extend */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.blue-box h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.blue-box p {
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    min-height: calc(100vh - 80px);
+}
+
+.home-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 60px;
+    text-align: center;
+}
+
+.home-container h1 {
+    font-size: 36px;
+    color: #3861C0;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Center modal overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    justify-content: center; /* Horizontal center */
+    align-items: center; /* Vertical center */
+    z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Modal buttons */
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal h2 {
+    color: #3861C0;
+    margin-bottom: 15px;
+}
+
+
+.btn-cancel, .btn-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Cancel button style */
+.btn-cancel {
+    background-color: #ccc;
+    color: #000;
+}
+
+.btn-cancel:hover {
+    background-color: #bbb;
+}
+
+/* Confirm (Logout / OK) button style */
+.btn-confirm {
+    background-color: #3861C0; /* Blue tone */
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #2f4fa0;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #3861C0;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        transition: left 0.3s;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 22px;
+        padding: 15px;
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .brand-name {
+        font-size: 22px;
+    }
+
+    .home-container {
+        padding: 40px 20px;
+    }
+
+    .home-container h1 {
+        font-size: 28px;
+    }
+
+    .home-container p {
+        font-size: 16px;
+    }
+}
+
+.event-details-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    gap: 15px;
+}
+
+.event-details-display h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.event-details-display p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

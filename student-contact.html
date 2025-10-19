@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EventEase</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="student/css/contact.css">
+    <link rel="stylesheet" href="student/css/notification-contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="student/logo/home-logo.png" alt="EventEase Logo" class="home-logo">
+                </div>
+                <div class="brand-name">EventEase</div>
+            </div>
+
+            <nav id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="student-home.html">Home</a></li>
+                    <li><a href="student-about.html">About Us</a></li>
+                    <li><a href="student-events.html">Events</a></li>
+                    <li><a href="student-contact.html" class="active">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-icons">
+                <!-- 🔔 Notification Icon -->
+                <div class="notification-wrapper">
+                    <i class="fas fa-bell notification-icon" onclick="toggleNotifications()"></i>
+                    <span class="notification-badge" id="notifBadge">3</span>
+                </div>
+                <i class="fas fa-right-from-bracket logout-icon" id="logoutBtn"></i>
+            </div>
+
+            <!-- 🔔 Notification Panel -->
+            <div class="notification-panel" id="notificationPanel">
+                <button class="close-panel" onclick="toggleNotifications()">×</button>
+
+                <div class="notification-header">
+                    <h2>Notifications</h2>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary" onclick="markAllRead()">Mark All Read</button>
+                        <button class="btn btn-danger" onclick="deleteAll()">Delete All</button>
+                    </div>
+                </div>
+
+                <div class="notification-list" id="notificationList">
+                    <div class="notification-item unread" data-id="1">
+                        <div class="notification-text">
+                            A new event, <strong>"Campus Fair"</strong>, has just been added to the calendar.
+                        </div>
+                        <button class="delete-btn" onclick="deleteNotification(1)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="notification-item unread" data-id="2">
+                        <div class="notification-text">
+                            <strong>Intramurals</strong> is happening today at <strong>2:00 PM</strong> in the <strong>Gymnasium</strong>.
+                        </div>
+                        <button class="delete-btn" onclick="deleteNotification(2)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="notification-item unread" data-id="3">
+                        <div class="notification-text">
+                            Reminder: <strong>Club Orientation</strong> starts in 1 hour.
+                        </div>
+                        <button class="delete-btn" onclick="deleteNotification(3)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contact-container">
+        <section class="contact-header">
+            
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-left">
+                <div class="logo-pair">
+                    <img src="student/logo/home-logo.png" alt="School Logo" class="school-logo">
+                    <img src="student/logo/unnamed.png" alt="EventEase Logo" class="eventease-logo">
+                </div>
+                <p>A calendar view that highlights dates with upcoming events.</p>
+            </div>
+
+            <div class="contact-right">
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h3>St. Rita’s College of Balingasag</h3>
+                        <p>Tres Martires, Brgy. 03, Balingasag Misamis Oriental</p>
+                    </div>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/raymark.acierto27" target="_blank">
+                        <img src="student/logo/fbni.webp" alt="Facebook" width="40" height="40">
+                    </a>
+                    <a href="https://www.instagram.com/itzzme.marky27/" target="_blank">
+                        <img src="student/logo/Instagram_icon.png" alt="Instagram" width="40" height="40">
+                    </a>
+                    <a href="mailto:raymarkjayacierto-it@srcb.edu.ph">
+                        <img src="student/logo/google-mail-gmail-icon-logo-symbol-free-png.webp" alt="Email" width="40" height="40">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Modals -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Logout Confirmation</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelLogout">Cancel</button>
+                <button class="btn-confirm" id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>Success</h2>
+            <p>You have successfully logged out.</p>
+            <div class="modal-buttons">
+                <button class="btn-confirm" id="okLogout">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="student/script/contact.js"></script>
+    <script src="student/script/notification-contact.js"></script>
+</body>
+</html>

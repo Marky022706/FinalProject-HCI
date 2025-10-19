@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - EventEase</title>
+    <link rel="stylesheet" href="student/css/home.css">
+    <link rel="stylesheet" href="student/css/notification-home.css">
+    <link rel="stylesheet" href="admin/css/admin-event.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="student/logo/home-logo.png" alt="EventEase Logo" class="home-logo">
+                </div>
+                <div class="brand-name">EventEase</div>
+            </div>
+            
+            <nav id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="admin-home.html">Home</a></li>
+                    <li><a href="admin-event.html" class="active">Event</a></li>
+                    <li><a href="admin-register.html">Register</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-icons">
+                <div class="notification-wrapper">
+                    <i class="fas fa-bell notification-icon" id="notifBell"></i>
+                    <span class="notification-badge" id="notifBadge">3</span>
+                </div>
+                <i class="fas fa-right-from-bracket logout-icon" id="logoutBtn"></i>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    
+            
+            <div class="container">
+        <!-- Event List Panel - Always visible initially -->
+        <div class="panel event-list-panel">
+            <div class="panel-header">
+                <span class="header-item">Event Name</span>
+                <span class="header-item actions-header">Actions</span>
+            </div>
+            <div class="event-rows" id="eventList">
+                <!-- Example Event Rows (now with more data attributes) -->
+                <div class="event-row" data-event-id="1"
+                        data-title="Annual Tech Conference"
+                        data-location="Main Auditorium"
+                        data-date="2023-10-26"
+                        data-time="09:00"
+                        data-description="A conference for latest tech trends."
+                        data-capacity="500"
+                        data-organizer="Tech Dept.">
+                    <input type="text" value="Annual Tech Conference" class="event-input" readonly>
+                    <div class="actions-icons">
+                        <i class="fas fa-pencil-alt action-icon edit-icon"></i>
+                        <i class="fas fa-trash-alt action-icon delete-icon"></i>
+                    </div>
+                </div>
+                <div class="event-row" data-event-id="2"
+                        data-title="Summer Charity Gala"
+                        data-location="Grand Ballroom"
+                        data-date="2024-07-15"
+                        data-time="19:00"
+                        data-description="Annual charity event to raise funds."
+                        data-capacity="200"
+                        data-organizer="Student Council">
+                    <input type="text" value="Summer Charity Gala" class="event-input" readonly>
+                    <div class="actions-icons">
+                        <i class="fas fa-pencil-alt action-icon edit-icon"></i>
+                        <i class="fas fa-trash-alt action-icon delete-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-add-event" id="showAddEventModal">Add Event</button>
+                <button class="btn btn-save" id="saveAllEvents">Save All Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Event Modal Overlay -->
+    <div class="modal-overlay" id="eventFormModal">
+        <div class="panel add-event-panel">
+            <h3 class="panel-title" id="modalTitle">Add Event</h3>
+            <div class="form-grid">
+                <input type="text" placeholder="Event Title" class="form-input" id="eventTitle">
+                <input type="text" placeholder="Location" class="form-input" id="eventLocation">
+                <input type="date" placeholder="Date" class="form-input" id="eventDate">
+                <input type="time" placeholder="Time" class="form-input" id="eventTime">
+                <textarea placeholder="Description" rows="3" class="form-input full-width" id="eventDescription"></textarea>
+                <input type="number" placeholder="Capacity" class="form-input" id="eventCapacity">
+                <input type="text" placeholder="Organizer" class="form-input" id="eventOrganizer">
+            </div>
+            <div class="panel-footer right-align">
+                <button class="btn btn-cancel" id="cancelEventForm">Cancel</button>
+                <button class="btn btn-save" id="saveEventForm">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+        </div>
+    </main>
+
+    <!-- Floating Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <button class="close-panel" onclick="toggleNotifications()">×</button>
+        <div class="notification-header">
+            <h2>Notification</h2>
+            <div class="notification-actions">
+                <button class="btn btn-primary" onclick="markAllRead()">Mark all as read</button>
+                <button class="btn btn-danger" onclick="deleteAll()">Delete all</button>
+            </div>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <div class="notification-item unread" data-id="1">
+                <div class="notification-text">
+                    A new event, <strong>"Campus Fair"</strong>, has just been added to the calendar.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(1)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="2">
+                <div class="notification-text">
+                    <strong>Intramurals</strong> is happening today at <strong>2:00 PM</strong> in the <strong>Gymnasium</strong>.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(2)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="3">
+                <div class="notification-text">
+                    Reminder: <strong>Club Orientation</strong> starts in 1 hour.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(3)">
+                    <i class="fas fa-trash"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Logout Confirmation</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelLogout">Cancel</button>
+                <button class="btn-confirm" id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Success Modal -->
+    <div id="logoutSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>Success</h2>
+            <p>You have successfully logged out.</p>
+            <div class="modal-buttons">
+                <button class="btn-confirm" id="okLogout">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="student/script/home.js"></script>
+    <script src="student/script/notification-home.js"></script>
+    <script src="admin/script/admin-event.js"></script>
+</body>
+</html>

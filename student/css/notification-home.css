@@ -1,0 +1,165 @@
+/* ============================
+    🔔 NOTIFICATION STYLES
+   ============================ */
+
+/* Wrapper that positions the bell icon and badge together */
+.notification-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Bell icon style */
+.notification-icon {
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Red circular badge for unread notification count */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #ef4444; /* Red color */
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* ============================
+   🧾 NOTIFICATION PANEL
+   ============================ */
+
+/* Hidden panel that slides in from the right */
+.notification-panel {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transform: translateX(500px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Panel visible state */
+.notification-panel.show {
+    transform: translateX(0);
+}
+
+/* ============================
+   🏷️ PANEL HEADER & ACTIONS
+   ============================ */
+
+/* Header bar for title and buttons */
+.notification-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Layout for action buttons (mark all read, delete all) */
+.notification-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Generic button style */
+.btn {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    background: #3861C0;
+    font: 15px 'Poppins', sans-serif;
+}
+
+.btn.btn-danger {
+    background: #ef4444;
+}
+
+.btn.btn-primary:hover{
+    background-color: #004cff;
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+    background: #ff0000;
+}
+
+/* ============================
+    📋 NOTIFICATION LIST
+   ============================ */
+
+/* Scrollable area for multiple notifications */
+.notification-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* Each notification item row */
+.notification-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    transition: background 0.2s;
+}
+
+/* Hover effect for a single notification */
+.notification-item:hover {
+    background: #f9fafb;
+}
+
+/* Highlight unread notifications */
+.notification-item.unread {
+    background: #f0f4ff;
+}
+
+/* Notification text section */
+.notification-text {
+    flex: 1;
+    font-size: 15px;
+    color: #0a0a0a;
+}
+
+/* Delete (trash) button for each notification */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ============================
+   ❌ CLOSE BUTTON
+   ============================ */
+
+/* Close button in the top-right corner of panel */
+.close-panel {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #070707;
+    cursor: pointer;
+}
+
+/* Hover color change for close button */
+.close-panel:hover {
+    color: #374151;
+}

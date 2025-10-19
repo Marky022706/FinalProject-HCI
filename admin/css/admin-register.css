@@ -1,0 +1,179 @@
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.registration-form {
+    padding: 20px 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 25px 40px; /* Row gap, Column gap */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"] {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.form-group input:focus {
+    border-color: #2F58CD;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(47, 88, 205, 0.2);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Custom Select Styling */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1em;
+    color: #333;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.custom-select select:focus {
+    border-color: #2F58CD;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(47, 88, 205, 0.2);
+}
+
+.custom-select .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Make arrow unclickable */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #666; /* Down arrow */
+}
+
+/* Date Input Wrapper for icon */
+.date-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.date-input-wrapper input[type="date"] {
+    flex-grow: 1;
+    padding-right: 40px; /* Space for the icon */
+}
+
+.date-input-wrapper .calendar-icon {
+    position: absolute;
+    right: 15px;
+    color: #888;
+    pointer-events: none; /* Icon is decorative, not interactive */
+}
+
+.form-actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cancel {
+    background-color: #95a5a6; /* Grey for cancel */
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.btn-save {
+    background-color: #2F58CD; /* Blue from your design */
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #2a4ac2;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .navbar-center {
+        display: none; /* Hide nav items on small screens */
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    .form-title {
+        font-size: 1.5em;
+    }
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}

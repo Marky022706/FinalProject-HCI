@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - EventEase</title>
+    <link rel="stylesheet" href="student/css/home.css">
+    <link rel="stylesheet" href="student/css/notification-home.css">
+    <link rel="stylesheet" href="admin/css/admin-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="student/logo/home-logo.png" alt="EventEase Logo" class="home-logo">
+                </div>
+                <div class="brand-name">EventEase</div>
+            </div>
+            
+            <nav id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="admin-home.html">Home</a></li>
+                    <li><a href="admin-event.html">Event</a></li>
+                    <li><a href="admin-register.html" class="active">Register</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-icons">
+                <div class="notification-wrapper">
+                    <i class="fas fa-bell notification-icon" id="notifBell"></i>
+                    <span class="notification-badge" id="notifBadge">3</span>
+                </div>
+                <i class="fas fa-right-from-bracket logout-icon" id="logoutBtn"></i>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="form-title">Register Student</h1>
+        <form id="studentRegistrationForm" class="registration-form">
+            <div class="form-grid">
+                <!-- Left Column Fields -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="gmailAccount">Gmail Account</label>
+                    <input type="email" id="gmailAccount" placeholder="your.email@gmail.com" pattern="[a-z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentID">Student ID Number</label>
+                    <input type="text" id="studentID" placeholder="e.g., 202401234" required>
+                </div>
+
+                <!-- Right Column Fields -->
+                <div class="form-group">
+                    <label for="gradeYearLevel">Grade / Year Level</label>
+                    <div class="custom-select">
+                        <select id="gradeYearLevel" required>
+                            <option value="" disabled selected>Select Level</option>
+                            <optgroup label="Junior High School">
+                                <option value="7th Grade">7th Grade</option>
+                                <option value="8th Grade">8th Grade</option>
+                                <option value="9th Grade">9th Grade</option>
+                                <option value="10th Grade">10th Grade</option>
+                            </optgroup>
+                            <optgroup label="Senior High School">
+                                <option value="11th Grade">11th Grade</option>
+                                <option value="12th Grade">12th Grade</option>
+                            </optgroup>
+                            <optgroup label="College">
+                                <option value="1st Year College">1st Year College</option>
+                                <option value="2nd Year College">2nd Year College</option>
+                                <option value="3rd Year College">3rd Year College</option>
+                                <option value="4th Year College">4th Year College</option>
+                                <!-- Add more college years if needed -->
+                            </optgroup>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courseStrand">Course / Strand</label>
+                    <div class="custom-select">
+                        <select id="courseStrand" required>
+                            <option value="" disabled selected>Select Course/Strand...</option>
+                            <!-- SHS Strands -->
+                            <optgroup label="Senior High Strands">
+                                <option value="HUMSS">HUMSS</option>
+                                <option value="STEM">STEM</option>
+                                <option value="GAS">GAS</option>
+                                <option value="ABM">ABM</option>
+                                <option value="TVL">TVL</option>
+                            </optgroup>
+                            <!-- College Courses -->
+                            <optgroup label="College Courses">
+                                <option value="Criminology">Criminology</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="BSBA">BSBA (Bachelor of Science in Business Administration)</option>
+                                <option value="EDUC">EDUC (Bachelor of Elementary/Secondary Education)</option>
+                                <option value="HM">HM (Bachelor of Science in Hospitality Management)</option>
+                                <!-- Add more college courses as needed -->
+                            </optgroup>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sectionBlock">Section / Block</label>
+                    <input type="text" id="sectionBlock" placeholder="e.g., A, 101" required>
+                </div>
+                <div class="form-group">
+                    <label for="registrationDate">Registration Date</label>
+                    <div class="date-input-wrapper">
+                        <input type="date" id="registrationDate" required>
+                        <span class="calendar-icon"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-cancel">Cancel</button>
+                <button type="submit" class="btn btn-save">Save</button>
+            </div>
+        </form>
+    </main>
+
+
+
+    <!-- Floating Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <button class="close-panel" onclick="toggleNotifications()">×</button>
+        <div class="notification-header">
+            <h2>Notification</h2>
+            <div class="notification-actions">
+                <button class="btn btn-primary" onclick="markAllRead()">Mark all as read</button>
+                <button class="btn btn-danger" onclick="deleteAll()">Delete all</button>
+            </div>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <div class="notification-item unread" data-id="1">
+                <div class="notification-text">
+                    A new event, <strong>"Campus Fair"</strong>, has just been added to the calendar.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(1)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="2">
+                <div class="notification-text">
+                    <strong>Intramurals</strong> is happening today at <strong>2:00 PM</strong> in the <strong>Gymnasium</strong>.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(2)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="3">
+                <div class="notification-text">
+                    Reminder: <strong>Club Orientation</strong> starts in 1 hour.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(3)">
+                    <i class="fas fa-trash"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Logout Confirmation</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelLogout">Cancel</button>
+                <button class="btn-confirm" id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Success Modal -->
+    <div id="logoutSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>Success</h2>
+            <p>You have successfully logged out.</p>
+            <div class="modal-buttons">
+                <button class="btn-confirm" id="okLogout">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="student/script/home.js"></script>
+    <script src="student/script/notification-home.js"></script>
+    <script src="admin/script/admin-register.js"></script>
+</body>
+</html>

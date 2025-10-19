@@ -1,0 +1,301 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #D9D9D9;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #3861C0;
+    padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.logo-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+    object-fit: cover;
+}
+
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-name {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid white;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icons i {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.nav-icons i:hover {
+    opacity: 0.7;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Contact Page Layout */
+.contact-header {
+    background-color: #D9D9D9;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-header h1 {
+    color: #1E3D91;
+    font-size: 40px;
+    font-weight: 800;
+    gap: top 20px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 100px;
+    gap: 30px;
+    background-color: #2f4fa0;
+    color: #fff;
+    font-size: 23px;
+    height: 50vh;
+    position: relative;
+    top: 150px; /* move down 150 pixels */
+
+}
+
+.contact-left {
+    width: 50%;
+    text-align: left;
+}
+
+.logo-pair {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.school-logo, .eventease-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    object-fit: cover;
+}
+
+.contact-left p {
+    max-width: 500px;
+}
+
+.contact-right {
+    width: 45%;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.location {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.location i {
+    font-size: 50px;;
+    margin-top: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px; /* space between icons */
+    margin-top: 10px;
+    margin-left: 250px; /* 🔹 move to the right to align with text */
+}
+.social-icons a:hover {
+    color: #000000;
+}
+
+
+/* Center modal overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    justify-content: center; /* Horizontal center */
+    align-items: center; /* Vertical center */
+    z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Modal buttons */
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal h2 {
+    color: #3861C0;
+    margin-bottom: 15px;
+}
+
+
+.btn-cancel, .btn-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Cancel button style */
+.btn-cancel {
+    background-color: #ccc;
+    color: #000;
+}
+
+.btn-cancel:hover {
+    background-color: #bbb;
+}
+
+/* Confirm (Logout / OK) button style */
+.btn-confirm {
+    background-color: #3861C0; /* Blue tone */
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #2f4fa0;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .contact-left, .contact-right {
+        width: 100%;
+        align-items: center;
+    }
+
+    .location {
+        justify-content: center;
+    }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

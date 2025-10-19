@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - EventEase</title>
+    <link rel="stylesheet" href="student/css/home.css">
+    <link rel="stylesheet" href="student/css/notification-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="student/logo/home-logo.png" alt="EventEase Logo" class="home-logo">
+                </div>
+                <div class="brand-name">EventEase</div>
+            </div>
+            
+            <nav id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="student-home.html" class="active">Home</a></li>
+                    <li><a href="student-about.html">About Us</a></li>
+                    <li><a href="student-events.html">Events</a></li>
+                    <li><a href="student-contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-icons">
+                <div class="notification-wrapper">
+                    <i class="fas fa-bell notification-icon" id="notifBell"></i>
+                    <span class="notification-badge" id="notifBadge">3</span>
+                </div>
+                <i class="fas fa-right-from-bracket logout-icon" id="logoutBtn"></i>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="home-container">
+            <div class="logo-card">
+                <div class="eventease-logo">
+                    <img src="student/logo/unnamed.png" alt="EventEase Logo" class="home-logo">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h1>SRCB Campus Event Management</h1>
+                <p>Streamlining school events and activities. Stay up-to-date, track dates and times, and never miss out on important happenings.</p>
+                <button class="cta-button" onclick="window.location.href='studentdashboard-events.html'">View All Events</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <button class="close-panel" onclick="toggleNotifications()">×</button>
+        <div class="notification-header">
+            <h2>Notification</h2>
+            <div class="notification-actions">
+                <button class="btn btn-primary" onclick="markAllRead()">Mark all as read</button>
+                <button class="btn btn-danger" onclick="deleteAll()">Delete all</button>
+            </div>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <div class="notification-item unread" data-id="1">
+                <div class="notification-text">
+                    A new event, <strong>"Campus Fair"</strong>, has just been added to the calendar.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(1)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="2">
+                <div class="notification-text">
+                    <strong>Intramurals</strong> is happening today at <strong>2:00 PM</strong> in the <strong>Gymnasium</strong>.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(2)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-item unread" data-id="3">
+                <div class="notification-text">
+                    Reminder: <strong>Club Orientation</strong> starts in 1 hour.
+                </div>
+                <button class="delete-btn" onclick="deleteNotification(3)">
+                    <i class="fas fa-trash"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Logout Confirmation</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelLogout">Cancel</button>
+                <button class="btn-confirm" id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Success Modal -->
+    <div id="logoutSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>Success</h2>
+            <p>You have successfully logged out.</p>
+            <div class="modal-buttons">
+                <button class="btn-confirm" id="okLogout">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="student/script/home.js"></script>
+    <script src="student/script/notification-home.js"></script>
+</body>
+</html>
