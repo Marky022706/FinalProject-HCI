@@ -119,7 +119,7 @@ body {
 
 .event-list-panel {
     flex: 1;
-    min-width: 500px;
+    /* Removed hard min-width to allow panels to shrink on mobile */
 }
 
 .panel-header {
@@ -321,22 +321,36 @@ textarea.form-input {
 }
 
 .nav-icons i {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
+    .navbar {
+        padding: 10px 16px;
+    }
+    .navbar-center {
+        display: none; /* Hide nav items on small screens */
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+        gap: 18px;
+    }
+    .form-title {
+        font-size: 1.4em;
+    }
+    .container {
+        margin: 12px auto;
+        padding: 14px;
+    }
 
-.nav-icons i:hover {
-    opacity: 0.7;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
+    /* Stack event list panel and details */
+    .container {
+        display: block;
+    }
+    .event-list-panel {
+        width: 100%;
+    }
+    .event-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
 
 .hamburger span {
     width: 25px;
@@ -345,3 +359,4 @@ textarea.form-input {
     border-radius: 2px;
 }
 
+}

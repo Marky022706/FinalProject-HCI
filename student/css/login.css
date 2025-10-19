@@ -6,19 +6,49 @@
 }
 
 body {
-    background: #3861C0;
+    /* make room for the blurred background pseudo-element */
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
+    position: relative;
+}
+
+/* Full-screen blurred background image */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("../logo/srcb school bg image.jpg");
+    background-size: cover;
+    background-position: center center;
+    filter: blur(7px) brightness(0.6);
+    transform: scale(1.02);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Dim overlay to improve contrast */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .login-container {
-    background: #fff;
+    /* place above the blurred background */
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.92);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 900px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    max-width: 900px;
+    width: 100%;
     display: flex;
     overflow: hidden;
 }
@@ -26,7 +56,7 @@ body {
 /* Left section */
 .left-section {
     flex: 1;
-    background: white;
+    background: rgba(255,255,255,0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,13 +91,15 @@ body {
 /* Right section */
 .right-section {
     flex: 1;
-    background: #4669CA;
+    background: rgba(70,105,202,0.92);
     color: white;
     padding: 60px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .login-title {
@@ -95,6 +127,44 @@ body {
 .form-input:focus {
     background: white;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover & focus micro-interactions */
+.form-input:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+}
+
+.toggle-btn:hover {
+    background: rgba(255,255,255,0.14);
+    transform: translateY(-1px);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+}
+
+.sign-in-btn:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 36px rgba(40,53,147,0.28);
+}
+
+.sign-in-btn:active {
+    transform: translateY(-1px) scale(0.995);
+}
+
+.logo-container img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .form-input, .toggle-btn, .sign-in-btn, .logo-container img {
+        transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
 }
 
 /* Password toggle */
@@ -171,6 +241,49 @@ body {
 
     .right-section {
         border-radius: 0 0 20px 20px;
+    }
+
+    /* Make sign-in button full width on tablet/mobile */
+    .sign-in-btn {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Mobile tweaks: make inputs and buttons friendlier on small screens */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 12px;
+        margin: 0 8px;
+    }
+
+    .logo-container {
+        gap: 10px;
+    }
+
+    .college-logo, .eventease-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .right-section {
+        padding: 28px 18px;
+    }
+
+    .form-input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .sign-in-btn {
+        width: 100%;
+        margin-left: 0;
+        padding: 14px;
+        font-size: 16px;
     }
 }
 

@@ -65,36 +65,44 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* keep .controls/.dropdown/.search-btn as-is (search filter preserved) */
+
 .controls {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
 }
 
-.dropdown select {
-    padding: 10px 70px;
-    border-radius: 20px;
-    border: 2px solid #1d1e1e;
-    font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.controls .dropdown select,
+#monthSelect,
+#daySelect {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(56,97,192,0.12);
+    font-size: 15px;
+    background: #fff;
+    color: #183153;
+    min-width: 120px;
 }
 
 .search-btn {
-    background-color: #e1dfdf; /* match your theme */
-    color: rgb(0, 0, 0);
+    background: linear-gradient(90deg,#3b6fd6 0%,#2e57c2 100%);
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    padding: 8px 15px;
+    border-radius: 10px;
+    padding: 10px 14px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
-    height: 40px; /* match dropdown height */
+    transition: transform 180ms ease, box-shadow 220ms ease;
+    height: 40px;
+    box-shadow: 0 8px 22px rgba(46,87,194,0.16);
 }
 
 .search-btn:hover {
-    background-color: #e9ecf1;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(46,87,194,0.18);
 }
 
 .search-btn i {
@@ -130,7 +138,7 @@ header {
 
 .month {
     font-size: 2rem;  
-    font-weight: 700;;
+    font-weight: 700;
     color: #3861C0;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

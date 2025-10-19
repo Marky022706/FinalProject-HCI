@@ -151,9 +151,9 @@ header {
     background-color: #2f4fa0;
     color: #fff;
     font-size: 23px;
-    height: 50vh;
+    min-height: 40vh;
     position: relative;
-    top: 150px; /* move down 150 pixels */
+    top: 0; /* removed large downward offset for better responsiveness */
 
 }
 
@@ -201,9 +201,9 @@ header {
 
 .social-icons {
     display: flex;
-    gap: 25px; /* space between icons */
+    gap: 18px; /* space between icons */
     margin-top: 10px;
-    margin-left: 250px; /* 🔹 move to the right to align with text */
+    margin-left: 0; /* reset for responsiveness */
 }
 .social-icons a:hover {
     color: #000000;
@@ -282,7 +282,7 @@ header {
     .contact-content {
         flex-direction: column;
         text-align: center;
-        padding: 30px;
+        padding: 24px;
     }
 
     .contact-left, .contact-right {
@@ -292,6 +292,26 @@ header {
 
     .location {
         justify-content: center;
+    }
+
+    .contact-content {
+        position: static;
+        min-height: auto;
+        padding-top: 20px;
+    }
+
+    .school-logo, .eventease-logo {
+        width: 84px;
+        height: 84px;
+    }
+
+    .contact-left p {
+        max-width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-left: 0;
     }
 }
 

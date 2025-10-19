@@ -1,3 +1,6 @@
+/* Import Poppins font and Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,11 +9,97 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: opacity 0.8s ease;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* faster fade for quicker redirects */
+    transition: opacity 220ms ease;
     line-height: 1.6;
     color: #333;
     background-color: #D9D9D9;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Stronger heading weights */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-weight: 600;
+}
+
+/* --- Interaction & Motion (HCI-friendly) --- */
+/* Keyframes */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0%   { transform: scale(0.98); }
+    50%  { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Apply gentle animation to common interactive elements */
+button, .cta-button, .nav-link {
+    transition: transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms ease, opacity 200ms ease;
+    will-change: transform, opacity;
+}
+
+.cta-button {
+    animation: pop 420ms ease both;
+}
+
+/* Hover / focus states for keyboard and pointer users */
+.cta-button:hover, .cta-button:focus,
+button:hover, button:focus,
+.nav-link:hover, .nav-link:focus {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.cta-button:active, button:active {
+    transform: translateY(-1px) scale(.99);
+}
+
+/* Card-style entrance animation - use the .card utility or apply to obvious card-like elements */
+.card, .building-image, .image-placeholder, .hero-content {
+    animation: fadeUp 560ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Subtle focus-visible outline for accessibility */
+:focus-visible {
+    outline: 3px solid rgba(58,97,192,0.18);
+    outline-offset: 3px;
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Full-screen blurred background image using a pseudo element so content remains interactive */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    background-image: url("../logo/srcb school bg image.jpg");
+    background-size: cover;
+    background-position: center center;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.02); /* prevent edges showing when blurred */
+    z-index: 0;
+    pointer-events: none; /* allow clicks through the background */
+}
+
+/* Slight overlay to increase text contrast */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+    pointer-events: none;
 }
 
 body.fade-out {
@@ -26,7 +115,7 @@ body.fade-out {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1001; /* place above the background pseudo elements */
 }
 
 .nav-container {
@@ -121,7 +210,9 @@ body.fade-out {
 .hero-section {
     width: 100%;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #D9D9D9 0%, #D9D9D9 100%);
+     /* let the blurred background show through */
+    position: relative;
+    z-index: 1; /* ensure content sits above the background */
 }
 
 .hero-content {
@@ -140,7 +231,7 @@ body.fade-out {
 .hero-title {
     font-size: 3rem;
     font-weight: bold;
-    color: #0c0c0c;
+    color: #ffffff; /* increase contrast over the background */
     margin-bottom: 1.5rem;
     line-height: 1.2;
     -webkit-text-stroke: 12% rgb(214, 210, 210);
@@ -183,8 +274,7 @@ body.fade-out {
     max-width: 500px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: white;
+    background: transparent;
 }
 
 .image-placeholder {
@@ -195,5 +285,120 @@ body.fade-out {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* Logo row: show school logo and event logo side-by-side */
+.logo-row {
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.logo-row img {
+    /* responsive sizing: larger on desktop but constrained on mobile */
+    max-height: clamp(120px, 20vh, 220px);
+    width: auto;
+    border-radius: 50%; /* make logos circular */
+    background: transparent;
+    padding: 0;
+    /* remove drop shadow and inset ring for a flatter look */
+    box-shadow: none;
+    outline: none;
+}
+
+.school-logo {
+    max-width: 48%;
+    object-fit: contain;
+}
+
+.event-logo {
+    max-width: 48%;
+    object-fit: contain;
+}
+
+/* Responsive: stack logos on narrow screens */
+@media (max-width: 700px) {
+    .logo-row {
+        flex-direction: column;
+    }
+
+    .logo-row img {
+        max-height: clamp(60px, 12vh, 120px);
+        max-width: 70%;
+    }
+}
+
+/* Mobile layout and header adjustments */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* make header logo smaller and left aligned */
+    .college-logo {
+        width: 48px;
+        height: 48px;
+        background: transparent; /* let it sit on navbar color */
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    /* show hamburger for mobile */
+    .hamburger {
+        display: flex;
+        order: 2;
+    }
+
+    /* hide nav icons if present to reduce clutter */
+    .nav-icons {
+        display: none;
+    }
+
+    /* Stack hero content into a single column */
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .main-content {
+        margin-top: 72px;
+    }
+
+    .text-content {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    /* Move logo-row / building image above or center on mobile */
+    .building-image {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .image-placeholder {
+        height: auto;
+        padding: 1.25rem 0;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .logo-row img {
+        max-height: clamp(64px, 12vh, 160px);
+        max-width: 60%;
+    }
 }
 

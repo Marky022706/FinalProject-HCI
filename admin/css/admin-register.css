@@ -168,12 +168,24 @@
     }
     .form-grid {
         grid-template-columns: 1fr; /* Single column layout on small screens */
+        gap: 16px;
     }
     .form-title {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     .container {
-        margin: 20px auto;
-        padding: 20px;
+        margin: 12px auto;
+        padding: 14px;
+    }
+
+    .form-actions {
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
     }
 }

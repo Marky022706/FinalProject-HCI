@@ -27,11 +27,11 @@ class LandingPage {
         // 🌫️ Add fade-out animation to the body
         document.body.classList.add("fade-out");
 
-        // ⏳ Wait for 0.8 seconds (animation duration)
-        // Then redirect to the login page
+        // ⏳ Wait briefly for the fade animation to complete then redirect
+        // Keep this slightly longer than the CSS transition (220ms) for smoothness
         setTimeout(() => {
             window.location.href = "login.html";
-        }, 800);
+        }, 280);
     }
 }
 

@@ -327,6 +327,28 @@ main {
     }
 }
 
+/* About page specific small-screen tweaks */
+@media (max-width: 480px) {
+    .white-box {
+        padding: 28px 18px 120px; /* reduce heavy padding */
+    }
+
+    .blue-box {
+        padding: 20px 14px;
+        font-size: 15px;
+        width: 110%;
+        left: -5%;
+    }
+
+    .blue-box h2 {
+        font-size: 20px;
+    }
+
+    .blue-box p {
+        font-size: 15px;
+    }
+}
+
 .event-details-display {
     flex: 1;
     display: flex;

@@ -287,6 +287,89 @@ main {
     }
 }
 
+/* Additional mobile tweaks: stack main, move logo-card to top-left, scale header logo */
+@media (max-width: 768px) {
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: start;
+        padding: 20px;
+    }
+
+    /* Ensure the logo-card appears above the content and aligns left */
+    .logo-card {
+        order: -1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 4px;
+    }
+
+    /* Make the large hero/home logo smaller and circular on mobile */
+    .home-container .home-logo {
+        max-width: 220px;
+        width: auto;
+        border-radius: 50%;
+        box-shadow: none;
+    }
+
+    /* Header: move logo to the top-left and keep hamburger on right */
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: transparent; /* let it sit on header color */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-circle img, .logo-section .home-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    /* Hide non-essential nav icons to keep header tidy */
+    .nav-icons {
+        display: none;
+    }
+
+    /* Tweak hamburger to appear on right */
+    .hamburger {
+        display: flex;
+        order: 2;
+    }
+
+    /* Adjust content spacing */
+    .content-section h1 {
+        font-size: 26px;
+    }
+
+    .content-section p {
+        font-size: 15px;
+    }
+}
+
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
