@@ -37,7 +37,7 @@ class LoginSystem {
 
         // ✅ Student Authentication
         if (email === studentEmail && password === studentPassword) {
-            this.showMessage("✅ Login successful! Redirecting...", "success");
+            this.showMessage("Login successful! Redirecting...", "success");
 
             this.emailInput.classList.remove('error-border');
             this.passwordInput.classList.remove('error-border');
@@ -50,7 +50,7 @@ class LoginSystem {
 
         // ✅ Admin Authentication
         } else if (email === adminEmail && password === adminPassword) {
-            this.showMessage("✅ Login successful! Redirecting...", "success");
+            this.showMessage("Login successful! Redirecting...", "success");
 
             this.emailInput.classList.remove('error-border');
             this.passwordInput.classList.remove('error-border');
@@ -63,7 +63,7 @@ class LoginSystem {
 
         // ❌ Invalid Credentials
         } else {
-            this.showMessage("❌ Invalid email or password.", "error");
+            this.showMessage("Invalid email or password.", "error");
 
             this.emailInput.classList.add('error-border', 'shake');
             this.passwordInput.classList.add('error-border', 'shake');
@@ -75,7 +75,7 @@ class LoginSystem {
         }
 
         if (email === "" || password === "") {
-            this.showMessage("❌ Please fill in all fields.", "error");
+            this.showMessage("Please fill in all fields.", "error");
         }
     }
 

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -91,9 +91,9 @@ body::after {
 /* Right section */
 .right-section {
     flex: 1;
-    background: rgba(70,105,202,0.92);
+    background: rgba(34, 73, 182, 0.92);
     color: white;
-    padding: 60px 40px;
+    padding: 60px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,7 +115,7 @@ body::after {
 
 .form-input {
     width: 100%;
-    padding: 15px 45px 15px 15px;
+    padding: 15px 40px 15px 15px;
     border: none;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.9);
@@ -201,7 +201,7 @@ body::after {
 .sign-in-btn {
     width: 50%;
     padding: 15px;
-    background: #283593;
+    background: #2836a3;
     color: white;
     border: none;
     border-radius: 10px;
@@ -209,12 +209,12 @@ body::after {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 90px;
 }
 
 .sign-in-btn:hover {
-    background: #1a237e;
+    background: #0e1dbcd9;
 }
 
 .message {
@@ -224,7 +224,7 @@ body::after {
 }
 
 .success {
-    color: #25b947;
+    color: #ffffff;
 }
 
 .error {
@@ -295,7 +295,7 @@ body::after {
 
 /* 🟢 Green border when successful */
 .success-border {
-    border: 2px solid #25b947 !important;
+    border: 2px solid #f1f1f1 !important;
     background: #eaffea !important;
 }
 
@@ -322,7 +322,7 @@ body.fade-out {
 
 /* 💬 Success/Error messages styling */
 .message.success {
-    color: #25b947;
+    color: #efefef;
     text-shadow: 0 0 5px #1e0b0b;
 }
 
